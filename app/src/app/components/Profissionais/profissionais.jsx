@@ -3,25 +3,25 @@ const profissionais = [
       id: 1,
       nome: "Dra. Ana Silva",
       especialidade: "Clínica Geral",
-      foto: "/ana-silva.jpg",
+      foto: "/medica3.jpg",
     },
     {
       id: 2,
       nome: "Dr. João Pereira",
       especialidade: "Cardiologista",
-      foto: "/joao-pereira.jpg",
+      foto: "/medico4.jpg",
     },
     {
       id: 3,
       nome: "Dra. Mariana Souza",
       especialidade: "Dermatologista",
-      foto: "/mariana-souza.jpg",
+      foto: "/medica2.jpg",
     },
   ];
   
   export default function Profissionais() {
     return (
-      <section className="max-w-7xl mx-auto px-4 py-12">
+      <section className="max-w-7xl mx-auto px-4 py-12 mt-40">
         <h2 className="text-3xl font-semibold text-cyan-900 mb-8 text-center">Nossa Equipe</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {profissionais.map(({ id, nome, especialidade, foto }) => (

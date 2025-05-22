@@ -7,6 +7,7 @@ import Especialidades from "./components/Especialidades/especialidades";
 import Geral from './components/Geral/geral'
 import Testemunhas from "./components/Testemunhas/testemunhas";
 import Profissionais from "./components/Profissionais/profissionais";
+import Footer from "./components/Footer/footer";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
         <Geral/>
         <Profissionais/>
         <Testemunhas />
+        <Footer/>
       </div>
     </>
 

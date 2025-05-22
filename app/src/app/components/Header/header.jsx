@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Header() {
@@ -10,7 +11,6 @@ export default function Header() {
       </div>
       <header className="w-full bg-gray-300">
         <nav className="relative px-4 py-3 flex items-center max-w-7xl mx-auto flex-wrap">
-          {/* Botão menu mobile */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="sm:hidden p-2 rounded-md text-cyan-900 hover:bg-cyan-200 focus:outline-none focus:ring-2 focus:ring-cyan-600"
@@ -25,11 +25,9 @@ export default function Header() {
             </svg>
           </button>
 
-          {/* Menu centralizado */}
           <ul
-            className={`sm:flex flex-col sm:flex-row items-center sm:space-x-16 text-black font-semibold w-full sm:w-auto mx-auto ${
-              menuOpen ? "block" : "hidden"
-            } sm:block`}
+            className={`sm:flex flex-col sm:flex-row items-center sm:space-x-16 text-black font-semibold w-full sm:w-auto mx-auto ${menuOpen ? "block" : "hidden"
+              } sm:block`}
           >
             <li>
               <a href="#" className="block px-4 py-2 hover:underline text-center sm:text-left">
@@ -53,18 +51,23 @@ export default function Header() {
             </li>
           </ul>
 
-          {/* Botões totalmente à direita */}
           <div
-            className={`flex flex-col sm:flex-row sm:space-x-5 mt-4 sm:mt-0 ml-auto w-full sm:w-auto ${
-              menuOpen ? "block" : "hidden"
-            } sm:flex`}
+            className={`flex flex-col sm:flex-row sm:space-x-5 mt-4 sm:mt-0 ml-auto w-full sm:w-auto ${menuOpen ? "block" : "hidden"
+              } sm:flex`}
           >
-            <button className="rounded-2xl w-full sm:w-40 py-2 mb-3 sm:mb-0 text-cyan-600 border border-cyan-600 hover:bg-cyan-600 hover:text-white transition">
-              <a href="#">Login</a>
-            </button>
-            <button className="bg-cyan-700 rounded-2xl w-full sm:w-40 py-2 text-white hover:bg-cyan-900 transition">
-              <a href="#">Cadastre-se</a>
-            </button>
+            <Link
+              href="/login"
+              className="cursor-pointer rounded-2xl w-full sm:w-40 py-2 mb-3 sm:mb-0 text-cyan-600 hover:bg-cyan-600 hover:text-white transition text-center block"
+            >
+              Login
+            </Link>
+
+            <a
+              href="#"
+              className="bg-cyan-700 rounded-2xl w-full sm:w-40 py-2 text-white hover:bg-cyan-900 transition text-center block"
+            >
+              Cadastre-se
+            </a>
           </div>
         </nav>
       </header>
