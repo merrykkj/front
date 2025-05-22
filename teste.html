@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clínica Vida Saudável</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/616/616408.png" />
+  <style>
+    :root {
+      --primary: #168aad;
+      --bg-light: #f1faff;
+      --bg-dark: #0b1c2e;
+      --text-light: #fff;
+      --text-dark: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-light);
+      color: var(--text-dark);
+      transition: all 0.3s ease;
+    }
+
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    header {
+      background: rgba(22, 138, 173, 0.8);
+      backdrop-filter: blur(10px);
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .toggle-dark {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      height: 85vh;
+      background: url('https://images.unsplash.com/photo-1588776814546-ec7e25f4c0b1?auto=format&fit=crop&w=1600') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .hero h1 {
+      position: relative;
+      color: white;
+      font-size: 3rem;
+      background: rgba(255,255,255,0.1);
+      padding: 20px 40px;
+      border-radius: 16px;
+      backdrop-filter: blur(5px);
+    }
+
+    section {
+      padding: 70px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 50px;
+      color: var(--primary);
+    }
+
+    .especialidades {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(6px);
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card i {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .contato {
+      background: var(--bg-light);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .contato p {
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+
+    .contato form {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contato input, .contato textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    .contato button {
+      background: var(--primary);
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .contato button:hover {
+      background: #117799;
+    }
+
+    footer {
+      background: #0a4d68;
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+    }
+
+    footer .social {
+      margin-top: 10px;
+    }
+
+    footer .social a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.3rem;
+      transition: 0.3s;
+    }
+
+    footer .social a:hover {
+      color: #dff6ff;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 50%;
+      font-size: 1.6rem;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    body.dark .card, body.dark .contato {
+      background: rgba(255,255,255,0.05);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    body.dark .contato input,
+    body.dark .contato textarea {
+      background: #122535;
+      color: white;
+      border: 1px solid #2a3c4f;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Clínica Vida Saudável</h1>
+    <div>
+      <nav>
+        <a href="#especialidades">Especialidades</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+    <button class="toggle-dark" onclick="toggleDarkMode()" title="Modo Escuro/Claro">
+      <i class="fas fa-moon"></i>
+    </button>
+  </header>
+
+  <section class="hero">
+    <h1>Sua saúde em primeiro lugar</h1>
+  </section>
+
+  <section id="especialidades">
+    <h2>Nossas Especialidades</h2>
+    <div class="especialidades">
+      <div class="card">
+        <i class="fas fa-user-md"></i>
+        <h3>Clínico Geral</h3>
+        <p>Atendimento completo e acompanhamento médico contínuo para todas as idades.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-baby"></i>
+        <h3>Pediatria</h3>
+        <p>Especialistas em cuidar da saúde das crianças com carinho e atenção.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-female"></i>
+        <h3>Ginecologia</h3>
+        <p>Atendimento dedicado à saúde da mulher com responsabilidade e empatia.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-bone"></i>
+        <h3>Ortopedia</h3>
+        <p>Tratamentos eficazes para ossos, articulações e lesões musculares.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="contato">
+    <h2>Fale Conosco</h2>
+    <p><i class="fas fa-map-marker-alt"></i> Rua da Saúde, 123 - Centro</p>
+    <p><i class="fas fa-phone-alt"></i> (11) 1234-5678</p>
+    <p><i class="fas fa-envelope"></i> contato@clinicavidas.com</p>
+    <p><i class="fas fa-clock"></i> Segunda a Sexta, das 8h às 18h</p>
+
+    <form>
+      <input type="text" placeholder="Seu nome" required>
+      <input type="email" placeholder="Seu e-mail" required>
+      <textarea rows="4" placeholder="Sua mensagem..." required></textarea>
+      <button type="submit">Enviar Mensagem</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Clínica Vida Saudável. Todos os direitos reservados.</p>
+    <div class="social">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5511999999999" class="whatsapp" target="_blank" title="Fale conosco no WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+
+</body>
+</html>
