@@ -19,7 +19,7 @@ function Card({ icon, title, description }) {
 
 export default function Especialidades() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-white to-blue-50 p-6 flex flex-col items-center">
+    <main className="min-h-screen p-6 flex flex-col items-center">
       <h1 className="text-3xl font-bold text-cyan-900 mb-10 text-center">
         Nossas Especialidades
       </h1>
@@ -31,7 +31,7 @@ export default function Especialidades() {
         <Card icon="fa-heartbeat" title="Cardiologia" description="Diagnóstico e tratamento de doenças do coração e sistema circulatório." />
         <Card icon="fa-brain" title="Neurologia" description="Cuidado especializado para doenças do sistema nervoso e cerebral." />
         <Card icon="fa-tooth" title="Odontologia" description="Atendimento odontológico completo para saúde bucal." />
-      
+
       </div>
 
     </main>
